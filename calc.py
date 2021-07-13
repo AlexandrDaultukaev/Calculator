@@ -1,6 +1,6 @@
 #Calculator
 
-
+import art
 
 def add(n1, n2):
     return n1 + n2
@@ -24,7 +24,7 @@ operations = {
 }
 
 def validator(num1, num2):
-    if num1.isalpha() or num2.isalpha():
+    if str(num1).isalpha() or str(num2).isalpha():
         print("Your numbers have symbol(s) other than digits!\n")
         exit()
     if num1 in [" " * len(num1)] or num2 in [" " * len(num2)]:
@@ -52,6 +52,7 @@ def calculator():
         again = input(f"Do you want to continue calculating with {result} (y/n): ").lower()
 
 start_over = "yes"
+print(art.logo)
 while start_over in ["y", "yes", "ye"]:
     calculator()
     start_over = input("Do you want to start from beginning?(y/n): ")
