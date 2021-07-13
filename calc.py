@@ -16,12 +16,22 @@ def divide(n1, n2):
         return "Invalid input"
     return n1 / n2
 
+def start_over():
+    start_again = input("Do you want to start from the beginning?(y/n)").lower()
+    if start_again in ["y", "ye", "yes"]:
+        return int(input("What's the first number?: "))
+    else:
+        print("Goodbye!\n")
+        exit()
+
 operations = {
     "+": add,
     "-": subtract,
     "*": multiply,
     "/": divide,
 }
+
+
 
 again = "yes"
 
@@ -39,12 +49,7 @@ while again not in ["n", "no", "nope"]:
     print(f"{num1} {operation_choice} {num2} = {result}")
     if result == "Invalid input":
         print("You can't proceed with this calculation...")
-        start_again = input("Do you want to start from the beginning?(y/n)").lower()
-        if start_again in ["y", "ye", "yes"]:
-            again = "yes"
-            num1 = int(input("What's the first number?: "))
-            continue
-        again = "no"
+        num1 = start_over()
         continue
     num1 = result
     again = input(f"Do you want to continue calculating with {result} (y/n)").lower()
