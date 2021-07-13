@@ -36,8 +36,12 @@ while again != "no" and again != "n":
 
     operation_choice = input("Choose operation what you need:\n")
     result = operations[operation_choice](num1, num2)
+    print(f"{num1} {operation_choice} {num2} = {result}")
+    if result == "Invalid input":
+        print("You can't proceed with calculation...")
+        again = "no"
+        continue
     num1 = result
-    print("Result: " + str(result))
     again = input(f"Do you want to continue calculating with {result} (y/n)")
 
 print("Goodbye!\n")
