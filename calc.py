@@ -1,5 +1,7 @@
 #Calculator
 
+
+
 def add(n1, n2):
     return n1 + n2
 
@@ -13,3 +15,30 @@ def divide(n1, n2):
     if n2 == 0:
         return "Invalid input"
     return n1 / n2
+
+operations = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide,
+}
+
+again = "yes"
+
+num1 = int(input("What's the first number?: "))
+
+
+
+while again != "no" and again != "n":
+    num2 = int(input("What's the second number?: "))
+    for operation in operations:
+        print(operation + "\n")
+
+    operation_choice = input("Choose operation what you need:\n")
+    result = operations[operation_choice](num1, num2)
+    num1 = result
+    print("Result: " + str(result))
+    again = input(f"Do you want to continue calculating with {result} (y/n)")
+
+print("Goodbye!\n")
+
